@@ -4,28 +4,16 @@ import (
 	"context"
 	"fmt"
 	"log"
-	"sync"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-/* Used to create a singleton object of MongoDB client.
-Initialized and exposed through  GetMongoClient().*/
-var clientInstance *mongo.Client
-
-//Used during creation of singleton client object in GetMongoClient().
-var clientInstanceError error
-
-//Used to execute client creation procedure only once.
-var mongoOnce sync.Once
-
-//I have used below constants just to hold required database config's.
 const (
-	SOURCECONNECTIONSTRING = "mongodb://localhost:27017"
+	SOURCECONNECTIONSTRING = "mongodb://localhost:27018"
 	SOURCEDB               = "prod"
-	DESTCONNECTIONSTRING   = "mongodb://localhost:27018"
+	DESTCONNECTIONSTRING   = "mongodb://localhost:27017"
 	DESTDB                 = "dev"
 )
 
